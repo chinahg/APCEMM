@@ -30,18 +30,18 @@ PARAMETER MENU:
     Horiz. diff. coeff. [m^2/s] (double): 15
     Verti. diff. [m^2/s] (double): 0.15
     Wind shear [1/s] (double): 1
-  LOCATION AND TIME SUBMENU:
-    LON [deg] (double): -15
-    LAT [deg] (double): 60
-    Emission day [1-365] (int): 81
-    Emission time [hr] (double): 8
-  BACKGROUND MIXING RATIOS SUBMENU:
-    NOx [ppt] (double): 5100
-    HNO3 [ppt] (double): 81.5
-    O3 [ppb] (double): 100
-    CO [ppb] (double): 40
-    CH4 [ppm] (double): 1.76
-    SO2 [ppt] (double): 7.25
+  # LOCATION AND TIME SUBMENU:
+  #   LON [deg] (double): -100
+  #   LAT [deg] (double): 38
+  #   Emission day [1-365] (int): 111
+  #   Emission time [hr] (double): 8
+  # BACKGROUND MIXING RATIOS SUBMENU:
+  #   NOx [ppt] (double): 5100
+  #   HNO3 [ppt] (double): 81.5
+  #   O3 [ppb] (double): 100
+  #   CO [ppb] (double): 40
+  #   CH4 [ppm] (double): 1.76
+  #   SO2 [ppt] (double): 7.25
   EMISSION INDICES SUBMENU:
     NOx [g(NO2)/kg_fuel] (double): 10
     CO [g/kg_fuel] (double): 1

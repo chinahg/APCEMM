@@ -1,39 +1,44 @@
 #!/bin/bash                                   
 
 #SBATCH --time=24:00:00
-#SBATCH --job-name="Horizontal Diffusion Coefficient"
+#SBATCH --job-name="Soot Radius"
 #SBATCH --mail-user=chinahg@mit.edu
-#SBATCH --mail-type=BEGIN,END
+#SBATCH --mail-type=END
 #SBATCH -o /home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/slurm/slurm-%j.out
 #xSBATCH -e slurm-%j.err
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
 #SBATCH --partition=normal
-#SBATCH --mem=50000MB
+#SBATCH --mem=5000MB
 #####################################
 
 job_id=$SLURM_JOBID
-var_in="HorizontalDiff"
+var_in="SootRadius"
 
-echo "APCEMM Sensitivity: Horizontal Diffusion Coefficient"
+#if no submenu (as for soot radius variable) set submenu_str to "none"
+submenu_str="none"
+varloc_str="Soot Radius [m] (double)"
+
+echo "APCEMM Sensitivity: Soot Radius"
 echo "Job ID: $job_id"
 
 #Variable values for run
-var1=15
-var2=48.75
-var3=82.5
-var4=116.25
-var5=150
+var1=1.0e-8
+var2=3.0e-8
+var3=5.0e-8
+var4=10.0e-8
+var5=20.0e-8
 
 echo "Editing YAML file: Temperature and Pressure"
 Altitude=37500 #[m]
-echo "Altitude: $Altitude m"
 Temperature=171.96 #[K]
 Pressure=344.5 #[hPa]
+echo "Altitude: $Altitude m"
 
 #Changing input.yaml file with new inputs
-python /home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/updateYAML.py $job_id $var_in $Temperature $Pressure $var1 $var2 $var3 $var4 $var5
+#Also: create folder for specific job to store output files (so they are not overwritten)
+python /home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/updateYAML.py $job_id $var_in $Temperature $Pressure $var1 $var2 $var3 $var4 $var5 "$varloc_str" "$submenu_str"
 
 echo "Ready to start"
 

@@ -29,12 +29,12 @@ for i in range(len(var)):
 
     #move ts_aerosol_case#_time.nc files to newly created directory
     # Source path 
-    source = '/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/APCEMM_out/'
+    source = '/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/inputs/APCEMM_out/'+str(jobID)+'/'
     slurm_dir = '/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/slurm/'
 
     # Destination path 
     destination = '/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/slurm/'+var_type+'-'+str(jobID)+'/'+str(int(var[i]))+'/'
-    
+    print(i)
     # Move the content of source to destination
     for file in sorted(os.listdir(source)):
         if (file.startswith("ts_aerosol_case"+str(i)) and file.endswith(".nc")):
@@ -42,4 +42,13 @@ for i in range(len(var)):
         if (file.startswith("slurm_"+str(jobID))):
             shutil.move(slurm_dir+file, destination)
 
+#Delete directory that held output files
+path = '/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/inputs/APCEMM_out/'
+for root,dirname,fname in os.walk(path):
+    if dirname.startswith(str(jobID)):
+        os.rmdir(path+dirname)
 
+#Move YAML file to destination path
+for file in sorted(os.listdir('/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/inputs/')):
+    if(file.endswith(str(jobID)+".yaml")):
+        shutil.move('/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/inputs/'+file, destination)
