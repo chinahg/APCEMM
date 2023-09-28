@@ -3,13 +3,12 @@ import os
 import numpy as np
 import shutil
 
-jobID = sys.argv[0]
-var_type = str(sys.argv[1])
+jobID = sys.argv[1]
 
 original_umask = os.umask(0)
 
 #make new directory for results
-newpath = '/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/slurm/'+var_type+'-'+str(jobID)+''
+newpath = '/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/slurm/'+str(jobID)+'/'
 
 if not os.path.exists(newpath):
     os.mkdir(newpath, 0o755)
@@ -19,7 +18,7 @@ if not os.path.exists(newpath):
 source = '/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/APCEMM_out/'
 
 # Destination path 
-destination = '/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/slurm/'+var_type+'-'+str(jobID)
+destination = newpath
 
 # Move the content of source to destination 
 for file in sorted(os.listdir(source)):

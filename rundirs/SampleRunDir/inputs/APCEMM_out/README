@@ -1,0 +1,37 @@
+############################################################################             
+############################################################################             
+###                                                                      ###             
+###                             APCEMM                                   ###             
+###                               --                                     ###             
+###   A(ircraft) P(lume) C(hemistry) E(mission) M(icrophysics) M(odel)   ###             
+###                                                                      ###             
+###                                                                      ###             
+###   Version: 5.0                                                       ###             
+###   Author : Thibaud M. Fritz                                          ###             
+###   Contact: Thibaud M. Fritz (fritzt@mit.edu),                        ###             
+###            Sebastian D. Eastham (seastham@mit.edu)                   ###             
+###                                                                      ###             
+############################################################################             
+############################################################################             
+###                                                                      ###             
+###   This project was funded by NASA and developed at                   ###             
+###   the laboratory for Aviation and the Environment,                   ###             
+###   Massachusetts Institute of Technology,                             ###             
+###   Cambridge, MA, USA                                                 ###             
+###                                                                      ###             
+############################################################################             
+############################################################################
+
+
+## Simulation start date 04/12/2023 12:08
+
+## Source files: /home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir
+
+## Destination folder: /home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/inputs/APCEMM_out/
+
+## Running as chinahg on c031
+
+## Purpose: 
+
+
+

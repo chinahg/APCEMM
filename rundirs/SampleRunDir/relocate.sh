@@ -14,4 +14,4 @@
 . /etc/profile.d/conda.sh
 conda activate lae2022
 
-python /home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/slurm/slurm_save.py $job_id $var_in
+python /home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/slurm/slurm_save.py $job_id

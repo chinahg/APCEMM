@@ -115,8 +115,8 @@ AEROSOL MENU:
 METEOROLOGY MENU:
   # --- MET INPUT OPTIONS ---+
   METEOROLOGICAL INPUT SUBMENU:
-    Use met. input (T/F): F
-    Met input file path (string): /path/to/input/
+    Use met. input (T/F): f
+    Met input file path (string): path/to/met
     Time series data timestep [hr] (double): 1.0
     Init temp. from met. (T/F): T
     Temp. time series input (T/F): T
@@ -142,7 +142,7 @@ METEOROLOGY MENU:
 
   #- OR -------------------+
   IMPOSE MOIST LAYER DEPTH SUBMENU:
-    Impose moist layer depth (T/F): T
+    Impose moist layer depth (T/F): F
     Moist layer depth [m] (double): 1000
   #- OR -----------------+
   IMPOSE LAPSE RATE SUBMENU:
