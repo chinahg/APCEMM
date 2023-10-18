@@ -31,6 +31,7 @@ set(CMAKE_CXX_STANDARD 17)
 configure_file(${CMAKE_SOURCE_DIR}/include/APCEMM.h.in ${CMAKE_SOURCE_DIR}/include/APCEMM.h @ONLY)
 
 # Include .cmake files in this directory to find the required packages
+list(APPEND CMAKE_PREFIX_PATH "/home/lrobion/local/")
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 # Automated discovert of netCDF using netCDF config
@@ -62,7 +63,7 @@ find_package(FFTW REQUIRED)
 find_package(OpenMP REQUIRED)
 #find_package(Catch2 3 REQUIRED)
 find_package(yaml-cpp REQUIRED)
-find_package(Eigen3 3.3 REQUIRED NO_MODULE)
+find_package(Eigen3 3.4 REQUIRED NO_MODULE HINTS "/home/chinahg/GCresearch/eigen-3.4.0/")
 
 # Try to get Catch2 automatically
 Include(FetchContent)
@@ -98,6 +99,7 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 
 # This ensures that the CMakeLists.txt in src/ gets build
 add_subdirectory(${CMAKE_SOURCE_DIR}/src)
+link_directories(${CMAKE_PREFIX_PATH}/lib)
 
 # Defines the 'main' file we want to create a binary of 
 add_executable(${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/src/Core/Main.cpp)

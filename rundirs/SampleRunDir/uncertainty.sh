@@ -13,16 +13,22 @@
 #####################################
 
 job_id=$SLURM_JOBID
-
+x1=0.009
+x2=0.2
 
 echo "APCEMM Sensitivity: RH Met Profile"
 echo "Job ID: $job_id"
+echo "Soot Particle Number: $x1"
+echo "Sulfur Fuel Content: $x2"
+
 
 
 echo "Editing YAML file: Meteorological Path"
 
 #Changing input.yaml file with new inputs and saving unique copy
-python /home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/updateYAML.py $job_id
+. /etc/profile.d/conda.sh
+conda activate contrails
+python /home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/updateYAML.py $job_id $x1 $x2
 
 echo "Ready to start"
 

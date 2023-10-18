@@ -7,19 +7,18 @@ from importlib.abc import Loader
 import os
 import shutil
 loader=yaml.Loader
+#sys.path.append('/home/chinahg/GCresearch/contrailuncertainty/exPCE.ipynb')
+#import exPCE.ipynb
 
 job_id = sys.argv[1]
-print(job_id)
+soot_EI = sys.argv[2]
+sulfur_fc = sys.argv[3]
 
 #make new YAML file (copy w jobid)
-source = '/home/chinahg/GCresearch/APCEMM/examples/Example3_met_input/input.yaml'
+source = '/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/input.yaml'
 destination = '/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/inputs/input-'+str(job_id)+'.yaml'
 
 shutil.copyfile(source,destination)
-
-# Define parameters
-length = len(sys.argv)
-var_array = np.zeros(5)
 
 ####################################################################
 ### CAN EDIT FOR EACH RUN, MUST ALSO EDIT IN /home/chinahg/GCresearch/contrailuncertainty/const_area_met_run.ipynb ###
@@ -43,7 +42,9 @@ if not os.path.exists(resultdir):
 with open('/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/inputs/input-'+str(job_id)+'.yaml') as istream:
     ymldoc = yaml.unsafe_load(istream)
     ymldoc['SIMULATION MENU']['OUTPUT SUBMENU']['Output folder (string)'] = str("APCEMM_out/"+str(job_id)+"/")
-    ymldoc["METEOROLOGY MENU"]["METEOROLOGICAL INPUT SUBMENU"]["Met input file path (string)"] = '/home/chinahg/GCresearch/contrailuncertainty/APCEMM_results/' + met_name +'.nc'
+    ymldoc['PARAMETER MENU']['Soot [g/kg_fuel] (double)'] = soot_EI
+    ymldoc['PARAMETER MENU']['SO2 [g/kg_fuel] (double)'] = sulfur_fc
+    ymldoc["METEOROLOGY MENU"]["METEOROLOGICAL INPUT SUBMENU"]["Met input file path (string)"] = '/home/chinahg/GCresearch/APCEMM/examples/Example3_met_input/example_met_file.nc' #'/home/chinahg/GCresearch/contrailuncertainty/APCEMM_results/' + met_name +'.nc'
 
 with open('/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/inputs/input-'+str(job_id)+'.yaml', "w") as ostream:
     yaml.dump(ymldoc, ostream, default_flow_style=False, sort_keys=False)

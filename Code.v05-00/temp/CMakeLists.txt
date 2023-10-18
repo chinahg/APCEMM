@@ -19,7 +19,7 @@ option(WITH_OPENMP "Build with OpenMP" OFF)
 find_package(HDF5 REQUIRED)
 include_directories(${HDF5_INCLUDES})
 
-list(APPEND CMAKE_PREFIX_PATH "/home/vmeijer/local/lib/cmake/netCDF/")
+list(APPEND CMAKE_PREFIX_PATH "/home/xu990/APCEMM_cmake/Code.v05-00/CMakeFiles")
 list(APPEND CMAKE_MODULE_PATH "../")
 find_package(NetCDF REQUIRED)
 find_package (netCDFCxx REQUIRED) 
