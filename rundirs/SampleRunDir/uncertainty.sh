@@ -27,7 +27,7 @@ echo "Editing YAML file: Meteorological Path"
 
 #Changing input.yaml file with new inputs and saving unique copy
 . /etc/profile.d/conda.sh
-conda activate contrails
+conda activate base
 python /home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/updateYAML.py $job_id $x1 $x2
 
 echo "Ready to start"

@@ -18,8 +18,8 @@ SIMULATION MENU:
     Use FFTW WISDOM (T/F): T
     Dir w/ write permission (string): ./
   # This mostly contains information on background aerosol concentration; Not too relevant for contrail behavior
-  Input background condition (string): ../../input_data/init.txt
-  Input engine emissions (string): ../../input_data/ENG_EI.txt
+  Input background condition (string): /home/chinahg/GCresearch/APCEMM/input_data/init.txt
+  Input engine emissions (string): /home/chinahg/GCresearch/APCEMM/input_data/ENG_EI.txt
   # Ignore/Don't change these, these are deprecated features. 
   SAVE FORWARD RESULTS SUBMENU:
     Save forward results (T/F): F
@@ -115,14 +115,14 @@ AEROSOL MENU:
 METEOROLOGY MENU:
   # --- MET INPUT OPTIONS ---+
   METEOROLOGICAL INPUT SUBMENU:
-    Use met. input (T/F): f
+    Use met. input (T/F): T
     Met input file path (string): path/to/met
     Time series data timestep [hr] (double): 1.0
     Init temp. from met. (T/F): T
     Temp. time series input (T/F): T
     Interpolate temp. met. data (T/F): T
     Init RH from met. (T/F): T
-    RH time series input (T/F): T
+    RH time series input (T/F): F
     Interpolate RH met. data (T/F): T
     Init wind shear from met. (T/F): T
     Wind shear time series input (T/F): T

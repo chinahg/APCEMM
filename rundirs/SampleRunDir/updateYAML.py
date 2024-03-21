@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/home/chinahg/.conda/envs/contrails
 
 import yaml
 import sys
@@ -13,6 +13,8 @@ loader=yaml.Loader
 job_id = sys.argv[1]
 soot_EI = sys.argv[2]
 sulfur_fc = sys.argv[3]
+
+print(soot_EI)
 
 #make new YAML file (copy w jobid)
 source = '/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/input.yaml'
@@ -44,7 +46,7 @@ with open('/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/inputs/input-'+s
     ymldoc['SIMULATION MENU']['OUTPUT SUBMENU']['Output folder (string)'] = str("APCEMM_out/"+str(job_id)+"/")
     ymldoc['PARAMETER MENU']['Soot [g/kg_fuel] (double)'] = soot_EI
     ymldoc['PARAMETER MENU']['SO2 [g/kg_fuel] (double)'] = sulfur_fc
-    ymldoc["METEOROLOGY MENU"]["METEOROLOGICAL INPUT SUBMENU"]["Met input file path (string)"] = '/home/chinahg/GCresearch/APCEMM/examples/Example3_met_input/example_met_file.nc' #'/home/chinahg/GCresearch/contrailuncertainty/APCEMM_results/' + met_name +'.nc'
+    ymldoc["METEOROLOGY MENU"]["METEOROLOGICAL INPUT SUBMENU"]["Met input file path (string)"] = '/home/chinahg/GCresearch/contrailuncertainty/APCEMM_results/' + met_name +'.nc'
 
 with open('/home/chinahg/GCresearch/APCEMM/rundirs/SampleRunDir/inputs/input-'+str(job_id)+'.yaml', "w") as ostream:
     yaml.dump(ymldoc, ostream, default_flow_style=False, sort_keys=False)
